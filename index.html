@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Animation Example</title>
+    <style>
+      /* Styling for the star */
+      polygon {
+        stroke-width: 6;
+        fill: none;
+        stroke: blue;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        animation: dash 5s linear infinite, colorChange 5s infinite alternate;
+      }
+
+      /* Animation to create the stroke effect */
+      @keyframes dash {
+        0% {
+          stroke-dashoffset: 200;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Animation to change stroke color */
+      @keyframes colorChange {
+        0% {
+          stroke: blue;
+        }
+        100% {
+          stroke: purple;
+        }
+      }
+
+      /* Styling for the last modified text */
+      .modified-time {
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="200" height="200" viewBox="0 0 100 100">
+      <!-- Star polygon shape -->
+      <polygon points="50,5 61,35 95,35 68,55 78,90 50,70 22,90 32,55 5,35 39,35" />
+    </svg>
+
+    <!-- Displaying last modified time -->
+    <div class="modified-time">
+      Last Modified: <script>document.write(document.lastModified);</script>
+    </div>
+  </body>
+</html>
